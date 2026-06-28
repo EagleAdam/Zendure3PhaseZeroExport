@@ -1,0 +1,19 @@
+# Example Home Assistant configuration snippet for SmartFlow
+
+smartflow:
+  zendure:
+    account_id: !secret zendure_account_id
+    api_token: !secret zendure_api_token
+    devices:
+      - name: "Zendure_1"
+        id: "device-id-1"
+      - name: "Zendure_2"
+        id: "device-id-2"
+
+  grid_sensors:
+    phase_l1: sensor.grid_phase_l1_power
+    phase_l2: sensor.grid_phase_l2_power
+    phase_l3: sensor.grid_phase_l3_power
+
+  update_interval_seconds: 10
+  max_export_w_per_phase: 0

@@ -1,0 +1,9 @@
+set_power:
+  description: Set target power for a Zendure device.
+  fields:
+    device_id:
+      description: Device ID
+      example: "device-id-1"
+    target_w:
+      description: Target power in watts
+      example: 0
