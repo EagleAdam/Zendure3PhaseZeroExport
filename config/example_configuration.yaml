@@ -1,6 +1,8 @@
 # Example Home Assistant configuration snippet for SmartFlow
 
 smartflow:
+  simulation_mode: true
+  #By default, simulation mode is enabled. Set to false to enable real device control.
   zendure:
     account_id: !secret zendure_account_id
     api_token: !secret zendure_api_token
