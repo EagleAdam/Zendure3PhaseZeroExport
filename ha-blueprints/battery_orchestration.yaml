@@ -1,0 +1,26 @@
+blueprint:
+  name: SmartFlow Battery Orchestration
+  description: >
+    Orchestrate multiple Zendure batteries based on SmartFlow targets.
+  domain: automation
+  input:
+    target_power_sensor:
+      name: SmartFlow target power sensor
+      selector:
+        entity:
+          domain: sensor
+    control_service:
+      name: Zendure control service
+      default: zendure_control.set_power
+
+trigger:
+  - platform: state
+    entity_id: !input target_power_sensor
+
+action:
+  - service: "{{ control_service }}"
+    data:
+      # Placeholder: distribute target across devices
+      total_target_w: "{{ states(target_power_sensor) | float(0) }}"
+
+mode: restart

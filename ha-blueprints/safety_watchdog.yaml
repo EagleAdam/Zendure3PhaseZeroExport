@@ -1,0 +1,31 @@
+blueprint:
+  name: SmartFlow Safety Watchdog
+  description: >
+    Disable export control when measurements are stale or invalid.
+  domain: automation
+  input:
+    grid_sensor:
+      name: Any grid power sensor
+      selector:
+        entity:
+          domain: sensor
+    control_service:
+      name: Zendure control service
+      default: zendure_control.set_power
+
+trigger:
+  - platform: state
+    entity_id: !input grid_sensor
+
+condition:
+  - condition: template
+    value_template: >
+      {{ states(grid_sensor) not in ['unknown', 'unavailable'] }}
+
+action:
+  - service: "{{ control_service }}"
+    data:
+      # Placeholder: safe behaviour when condition fails
+      safe_mode: false
+
+mode: restart

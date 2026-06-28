@@ -1,0 +1,38 @@
+blueprint:
+  name: SmartFlow Per-Phase Control
+  description: >
+    Per-phase export control using SmartFlow sensors and Zendure control.
+  domain: automation
+  input:
+    phase_l1_sensor:
+      name: Phase L1 power sensor
+      selector:
+        entity:
+          domain: sensor
+    phase_l2_sensor:
+      name: Phase L2 power sensor
+      selector:
+        entity:
+          domain: sensor
+    phase_l3_sensor:
+      name: Phase L3 power sensor
+      selector:
+        entity:
+          domain: sensor
+    control_service:
+      name: Zendure control service
+      default: zendure_control.set_power
+
+trigger:
+  - platform: time_pattern
+    seconds: "/10"
+
+action:
+  - service: "{{ control_service }}"
+    data:
+      # Placeholder: will be wired to script outputs later
+      l1_target_w: 0
+      l2_target_w: 0
+      l3_target_w: 0
+
+mode: restart
