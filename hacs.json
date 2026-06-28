@@ -1,0 +1,8 @@
+{
+  "name": "Zendure 3-Phase Zero Export",
+  "content_in_root": false,
+  "domains": ["zendure_control"],
+  "country": ["CH"],
+  "homeassistant": "2024.0.0",
+  "render_readme": true
+}
