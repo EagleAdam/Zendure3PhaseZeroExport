@@ -1,9 +1,10 @@
 {
-  "domain": "zendure_control",
+  "domain": "Zendure3PhaseZeroExport",
   "name": "Zendure Control",
   "version": "0.1.0",
   "documentation": "https://github.com/EagleAdam84/Zendure3PhaseZeroExport",
   "requirements": [],
   "codeowners": ["@EagleAdam84"],
-  "iot_class": "cloud_polling"
+  "iot_class": "cloud_polling",
+  "config_flow": true
 }
